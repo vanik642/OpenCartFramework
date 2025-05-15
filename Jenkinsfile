@@ -43,10 +43,12 @@ pipeline
                 
         stage('Regression Automation Tests') {
             steps {
+				withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/vanik642/OpenCartFramework.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml -Denv=qa"
                     
+                }
                 }
             }
         }
@@ -87,10 +89,12 @@ pipeline
         
         stage('Sanity Automation Test') {
             steps {
+				withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/vanik642/OpenCartFramework.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=stage"
                     
+                }
                 }
             }
         }
