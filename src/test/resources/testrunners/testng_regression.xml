@@ -25,7 +25,7 @@
 	 </test>
 	 
 	 
-	<!--
+	
 		 <test name="Login Page Test">
 	<parameter name="browser" value="chrome"></parameter>
 	  <classes>
@@ -50,16 +50,14 @@
 		</classes>
 	</test>
 	
-	<test name="Account Page Test_safari">
+	<!--<test name="Account Page Test_safari">
 	<parameter name="browser" value="safari"></parameter>
 	    <classes>
 			<class name="com.qa.opencart.test.AccountsPageTest" />
 		</classes>
-	</test>
-	-->
-	
-	<!--
-		<test name="Search Test" >
+	</test>-->
+
+	<test name="Search Test" >
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.qa.opencart.test.SearchTest" />
@@ -73,7 +71,7 @@
 		</classes>
 		
 	</test>
-	-->
+
 	
 	
 	
