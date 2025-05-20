@@ -12,15 +12,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
+import com.beust.jcommander.Parameter;
 import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.pages.AccountsPage;
 import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
 import com.qa.opencart.pages.SearchResultsPage;
+
+import io.qameta.allure.Description;
 
 
 //@Listeners(ChainTestListener.class)
@@ -37,10 +41,18 @@ public class BaseTest  {
 	
 	private static final Logger log = LogManager.getLogger(BaseTest.class);
 
+	
+	@Description("init the driver and properties")
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setUp() {
+	public void setUp(String browserName) {
 		df=new DriverFactory();
 		prop=df.initProp();
+		//browserName is passed from .xml file
+		if(browserName!=null) {
+			prop.setProperty("browser", browserName);
+		}
+		
 		ChainTestListener.log("properties used  "+prop);
 		driver=df.initDriver(prop);    //call by reference
 		loginPage=new LoginPage(driver);
