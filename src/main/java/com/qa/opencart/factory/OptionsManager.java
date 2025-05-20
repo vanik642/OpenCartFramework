@@ -25,6 +25,12 @@ public class OptionsManager {
 			co.addArguments("--incognito");
 		}
 		System.out.println("CO"+co);
+		
+		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
+			co.setCapability("browserName", "chrome");
+		}
+		
+		
 		return co;
 		
 		
