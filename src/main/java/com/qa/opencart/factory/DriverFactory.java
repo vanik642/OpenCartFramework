@@ -229,6 +229,11 @@ public class DriverFactory {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		return srcFile;
 	}
+	
+	public  File getScreenshotFile1() {
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		return srcFile;
+	}
 
 	public static byte[] getScreenshotByte() {
 		return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);

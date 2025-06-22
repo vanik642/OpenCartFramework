@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.opencart.base.BaseTest;
 
-import com.qa.opencart.pages.LoginPage;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

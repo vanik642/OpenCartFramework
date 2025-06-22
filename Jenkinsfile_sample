@@ -1,0 +1,78 @@
+pipeline 
+{
+    agent any
+    
+    tools{
+        maven 'maven'
+        }
+
+    stages 
+    
+    {
+		
+		
+        stage('Build') 
+        {
+            steps
+            {
+				echo("Build the project ")
+            }
+         
+           
+        }
+        
+        stage("Run Unit Test"){
+            steps{
+                echo("Run Uts")
+            }
+        }
+        
+        stage("Run Integration Test"){
+            steps{
+                echo("Run Its")
+            }
+        }
+        
+         stage("Deploy to DEV"){
+            steps{
+                echo("deploy to dev done")
+            }
+        }
+        
+        stage("Deploy to QA"){
+            steps{
+                echo("deploy to qa done")
+            }
+        }
+        
+        stage("Run Regression Testcase on  to QA"){
+            steps{
+                echo("RUn Test on qa done")
+            }
+        }
+        
+        
+       
+        stage("Deploy to Stage"){
+            steps{
+                echo("deploy to Stage")
+            }
+        }
+        
+        stage('Run Sanity Test Cases on Stage') {
+            steps {
+				echo("Run Sanity test case on stage")
+            }
+        }
+        
+     
+        
+        stage("Deploy to PROD"){
+            steps{
+                echo("deploy to PROD")
+            }
+        }
+        
+        
+    }
+}

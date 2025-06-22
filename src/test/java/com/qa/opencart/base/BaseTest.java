@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
 
@@ -36,23 +37,24 @@ public class BaseTest  {
 	protected LoginPage loginPage;
 	protected AccountsPage accPage;
 	protected SearchResultsPage searchResultsPage;
-	protected ProductInfoPage productInfoPage;
+	protected ProductInfoPage productInfoPage;   //Page object for product details page.
 	protected RegisterPage registerPage;
 	
 	private static final Logger log = LogManager.getLogger(BaseTest.class);
 
 	
 	@Description("init the driver and properties")
-	@Parameters({"browser","browserversion","testname"})
+	//@Parameters({"browser","browserversion","testname"})
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setUp(String browserName,String browserversion,String testname) {
+	public void setUp(String browserName) {
 		df=new DriverFactory();
 		prop=df.initProp();
 		//browserName is passed from .xml file
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
-			prop.setProperty("browserversion", browserversion);
-			prop.setProperty("testname", testname);
+			//prop.setProperty("browserversion", browserversion);
+			//prop.setProperty("testname", testname);
 		}
 		
 		ChainTestListener.log("properties used  "+prop);

@@ -20,5 +20,6 @@ public class SearchTest extends BaseTest{
 		searchResultsPage = accPage.doSearch("macbook");
 		int actResultsCount = searchResultsPage.getResultsProductCount();
 		Assert.assertEquals(actResultsCount, 3);
+		//System.o
 	}
 }
