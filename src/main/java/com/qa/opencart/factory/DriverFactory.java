@@ -226,6 +226,11 @@ public class DriverFactory {
 	 */
 
 	public static File getScreenshotFile() {
+		
+//		  TakesScreenshot ts = (TakesScreenshot) driver;
+//
+//	        // Capture screenshot as file
+//	        File source = ts.getScreenshotAs(OutputType.FILE);
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		return srcFile;
 	}

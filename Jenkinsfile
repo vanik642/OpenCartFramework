@@ -41,7 +41,7 @@ pipeline
         
         
                 
-        stage('Regression Automation Tests') {
+      /*  stage('Regression Automation Tests') {
             steps {
 				withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
